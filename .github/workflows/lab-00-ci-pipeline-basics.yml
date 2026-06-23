@@ -1,0 +1,16 @@
+name: CI_Pipeline_Basic
+
+on:
+  push:
+    paths:
+      - 'lab-00-ci-pipeline-basics/'
+
+jobs:
+  preparation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Preparing stuff
+        run: echo 'Preparing code...'
