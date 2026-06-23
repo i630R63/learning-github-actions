@@ -16,12 +16,18 @@ jobs:
         run: echo 'Preparing code...'
 
   tests:
+    needs: preparation
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
       - name: Execute tests
         run: echo 'Executing tests'
 
+      - name: time-to-test-timeout
+        run: sleep 66
+
   deployment:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
